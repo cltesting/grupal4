@@ -36,10 +36,11 @@ lugar.addEventListener('change', (e)=>{
     formIsValid.lugar = true
 })
 
-cantidad.addEventListener('change', (e)=>{
-    if(cantidad>0)
-    formIsValid.cantidad = true
-})
+cantidad.addEventListener('change', (e) => {
+    if (cantidad.value > 0)
+        formIsValid.cantidad = true;
+});
+
 
 rut.addEventListener('change', (e)=>{
     if(e.target.value.trim().length > 0)
@@ -78,6 +79,8 @@ var Fn = {
 			S=(S+T%10*(9-M++%6))%11;
 		return S?S-1:'k';
 	}
+	
+	
 }
 
 

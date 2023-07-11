@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,6 +8,14 @@
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
 </head>
 <body>
+<%
+    session=request.getSession(false);
+    if(session.getAttribute("admin")==null)
+    {
+        response.sendRedirect("login_user.jsp");
+    }
+
+%>
 	<nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #e3f2fd;">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Menu</a>
@@ -47,7 +57,7 @@
 		<form action="CrearCapacitacion" method="post" id="formcapacitacion">
 			<div class="form-group">
 				<label for="nombre">Rut Cliente:</label> 
-				<input type="text" class="form-control" id="rut" name="rut" required>
+				<input type="text" class="form-control" id="rut" name="rut" placeholder="Ingresar Rut Sin puntos y con guion" required>
 			</div>
 			
 			<div class="form-group">
@@ -65,15 +75,15 @@
 			</div>
 			<div class="form-group">
 				<label for="correo">Hora:</label> 
-				<input type="text" class="form-control" id="hora" name="hora" required>
+				<input type="time" class="form-control" id="hora" name="hora" placeholder="Ingresar hora" required>
 			</div>
 			<div class="form-group">
 				<label for="nombre">Lugar:</label> 
-				<input type="text" class="form-control" id="lugar" name="lugar" required>
+				<input type="text" class="form-control" id="lugar" name="lugar" placeholder="Ingresar lugar" required>
 			</div>
 			<div class="form-group">
 				<label for="nombre">Cantidad de Asistentes:</label> 
-				<input type="number" class="form-control" id="cantidad" name="cantidad" required>
+				<input type="number" class="form-control" id="cantidad" name="cantidad" placeholder="Ingrese cantidad de asistentes" required>
 			</div>
 			<button type="submit" class="btn btn-primary" id="btn-registar">Registrar</button>
 		</form>
@@ -82,6 +92,7 @@
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
 	<script type="text/javascript"src="./assets/js/script.js"></script>
 </body>
 </html>

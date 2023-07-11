@@ -8,6 +8,14 @@
 <link rel="stylesheet"href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
+<%
+    session=request.getSession(false);
+    if(session.getAttribute("admin")==null)
+    {
+        response.sendRedirect("login_user.jsp");
+    }
+
+%>
 <nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #e3f2fd;">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Menu</a>
