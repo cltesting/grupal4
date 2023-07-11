@@ -39,4 +39,34 @@
     <servlet-name>Conexion</servlet-name>
     <url-pattern>/Conexion</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EliminarCapacitacion</display-name>
+    <servlet-name>EliminarCapacitacion</servlet-name>
+    <servlet-class>cl.grupo1.servlet.EliminarCapacitacion</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EliminarCapacitacion</servlet-name>
+    <url-pattern>/EliminarCapacitacion</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EditarCapacitacion</display-name>
+    <servlet-name>EditarCapacitacion</servlet-name>
+    <servlet-class>cl.grupo1.servlet.EditarCapacitacion</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditarCapacitacion</servlet-name>
+    <url-pattern>/EditarCapacitacion</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ActualizarCapacitacion</display-name>
+    <servlet-name>ActualizarCapacitacion</servlet-name>
+    <servlet-class>cl.grupo1.servlet.ActualizarCapacitacion</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ActualizarCapacitacion</servlet-name>
+    <url-pattern>/ActualizarCapacitacion</url-pattern>
+  </servlet-mapping>
 </web-app>

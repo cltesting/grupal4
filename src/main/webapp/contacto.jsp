@@ -23,7 +23,19 @@
           <a class="nav-link" href="crear_capacitacion.jsp">Crear Capacitacion</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="contacto.jsp">Contacto</a>
+          <a class="nav-link" href="ListarCapacitaciones">Listar Capacitaciones</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link" href="CrearUsuario">Crear Usuario</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="ListarUsuarios">Listar Usuarios</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contacto.jsp">Contacto</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="cerrar_sesion.jsp">Cerrar Sesion</a>
         </li>
       </ul>
       <span class="navbar-text">
@@ -31,7 +43,7 @@
       </span>
     </div>
   </div>
-</nav>	
+</nav>
 	<div class="container col-lg-8 mt-4">
 		<h1>Contacto</h1>
 		<form action="resumen_mensaje.jsp" method="post">

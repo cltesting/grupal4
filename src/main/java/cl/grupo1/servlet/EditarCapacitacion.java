@@ -6,16 +6,16 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 import ConexionDB.Conexion;
-
-
+import cl.grupo1.servlet.*;
 
 /**
- * Servlet implementation class CrearCapacitacion
+ * Servlet implementation class EditarCapacitacion
  */
-@WebServlet("/CrearCapacitacion")
-public class CrearCapacitacion extends HttpServlet {
+@WebServlet("/Editar-Capacitacion")
+public class EditarCapacitacion extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private int id;
@@ -24,11 +24,13 @@ public class CrearCapacitacion extends HttpServlet {
 	private String hora;
 	private String lugar;
 	private String cantidad;
+	private String capacitaciones;
+       
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CrearCapacitacion() {
+    public EditarCapacitacion() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,43 +39,22 @@ public class CrearCapacitacion extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		int id = Integer.parseInt(request.getParameter("id"));
+		Conexion conexion = Conexion.getInstancia();
+		EditarCapacitacion capacitacion = conexion.obtenerCapacitacionesPorId(id);
+
+        request.setAttribute("capacitacion", capacitacion);
+        request.getRequestDispatcher("editar_capacitacion.jsp").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		String rut = request.getParameter("rut");
-		String dia = request.getParameter("dia");
-		String hora = request.getParameter("hora");
-		String lugar =request.getParameter("lugar");
-		String cantidad = request.getParameter("cantidad");
-		
-		CrearCapacitacion capacitacion = new CrearCapacitacion();
-		capacitacion.setRut(rut);
-		capacitacion.setDia(dia);
-		capacitacion.setHora(hora);
-		capacitacion.setLugar(lugar);
-		capacitacion.setCantidad(cantidad);
-		
-		//request.setAttribute("rut", rut);
-		//request.setAttribute("dia", dia);
-		//request.setAttribute("hora", hora);
-		//request.setAttribute("lugar", lugar);
-		//request.setAttribute("cantidad", cantidad);
-		//request.getRequestDispatcher("resumen_capacitacion.jsp").forward(request, response);
-	
-		
-		Conexion conexion = Conexion.getInstancia();
-       	conexion.agregarCapacitacion(capacitacion);
-
-        response.sendRedirect("ListarCapacitaciones");
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
-	
-	
 
 	public int getId() {
 		return id;
@@ -123,5 +104,12 @@ public class CrearCapacitacion extends HttpServlet {
 		this.cantidad = cantidad;
 	}
 
-	
+	public String getCapacitaciones() {
+		return capacitaciones;
+	}
+
+	public void setCapacitaciones(String capacitaciones) {
+		this.capacitaciones = capacitaciones;
+	}
+
 }

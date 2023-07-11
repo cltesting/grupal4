@@ -9,13 +9,11 @@ import java.io.IOException;
 
 import ConexionDB.Conexion;
 
-
-
 /**
- * Servlet implementation class CrearCapacitacion
+ * Servlet implementation class ActualizarCapacitacion
  */
-@WebServlet("/CrearCapacitacion")
-public class CrearCapacitacion extends HttpServlet {
+@WebServlet("/Actualizar-Capacitacion")
+public class ActualizarCapacitacion extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private int id;
@@ -28,7 +26,7 @@ public class CrearCapacitacion extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CrearCapacitacion() {
+    public ActualizarCapacitacion() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -46,34 +44,25 @@ public class CrearCapacitacion extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String rut = request.getParameter("rut");
-		String dia = request.getParameter("dia");
-		String hora = request.getParameter("hora");
-		String lugar =request.getParameter("lugar");
-		String cantidad = request.getParameter("cantidad");
-		
-		CrearCapacitacion capacitacion = new CrearCapacitacion();
-		capacitacion.setRut(rut);
-		capacitacion.setDia(dia);
-		capacitacion.setHora(hora);
-		capacitacion.setLugar(lugar);
-		capacitacion.setCantidad(cantidad);
-		
-		//request.setAttribute("rut", rut);
-		//request.setAttribute("dia", dia);
-		//request.setAttribute("hora", hora);
-		//request.setAttribute("lugar", lugar);
-		//request.setAttribute("cantidad", cantidad);
-		//request.getRequestDispatcher("resumen_capacitacion.jsp").forward(request, response);
-	
-		
-		Conexion conexion = Conexion.getInstancia();
-       	conexion.agregarCapacitacion(capacitacion);
+			int id = Integer.parseInt(request.getParameter("id"));
+		 	String rut = request.getParameter("rut");
+			String dia = request.getParameter("dia");
+			String hora = request.getParameter("hora");
+			String lugar =request.getParameter("lugar");
+			String cantidad = request.getParameter("cantidad");
 
-        response.sendRedirect("ListarCapacitaciones");
+	        ActualizarCapacitacion capacitacion = new ActualizarCapacitacion();
+	        capacitacion.setId(id);
+	        capacitacion.setRut(rut);
+			capacitacion.setDia(dia);
+			capacitacion.setHora(hora);
+			capacitacion.setLugar(lugar);
+			capacitacion.setCantidad(cantidad);
+
+			Conexion conexion = Conexion.getInstancia();
+	        conexion.actualizarCapacitacion(capacitacion);
+	        response.sendRedirect("ListarCapacitaciones");
 	}
-	
-	
 
 	public int getId() {
 		return id;
@@ -122,6 +111,5 @@ public class CrearCapacitacion extends HttpServlet {
 	public void setCantidad(String cantidad) {
 		this.cantidad = cantidad;
 	}
-
-	
+	        
 }

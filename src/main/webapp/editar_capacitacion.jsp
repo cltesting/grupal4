@@ -1,9 +1,10 @@
+<%@ page import="cl.grupo1.servlet.EditarCapacitacion" %>
+<%@ page import="java.util.List" %>
 <!DOCTYPE html>
 <html>
 <head>
 <title>Registro de Empleado</title>
 <link rel="stylesheet"href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #e3f2fd;">
@@ -43,16 +44,18 @@
   </div>
 </nav>
 	<div class="container col-lg-8 mt-4">
-		<h1>Registro de Capacitaciones</h1>
-		<form action="CrearCapacitacion" method="post" id="formcapacitacion">
+		<h1>Editar Capacitaciones</h1>
+		<% EditarCapacitacion capacitacion = (EditarCapacitacion) request.getAttribute("capacitacion"); %>
+		<form action="Actualizar-Capacitacion" method="post">
+			<input type="hidden" name="id" value="<%= capacitacion.getId() %>">
 			<div class="form-group">
 				<label for="nombre">Rut Cliente:</label> 
-				<input type="text" class="form-control" id="rut" name="rut" required>
+				<input type="text" class="form-control" id="rut" name="rut" required value="<%= capacitacion.getRut() %>">
 			</div>
 			
 			<div class="form-group">
 				<label for="exampleDataList" class="form-label">Dia de la Capacitacion</label> 
-				<input class="form-control" list="datalistOptions" id="dia" name="dia" placeholder="Seleccione el dia">
+				<input class="form-control" list="datalistOptions" id="dia" name="dia" placeholder="Seleccione el dia" value="<%= capacitacion.getDia() %>">
 				<datalist id="datalistOptions">
 					<option value="Lunes">
 					<option value="Martes">
@@ -65,23 +68,24 @@
 			</div>
 			<div class="form-group">
 				<label for="correo">Hora:</label> 
-				<input type="text" class="form-control" id="hora" name="hora" required>
+				<input type="text" class="form-control" id="hora" name="hora" required value="<%= capacitacion.getHora() %>">
 			</div>
 			<div class="form-group">
 				<label for="nombre">Lugar:</label> 
-				<input type="text" class="form-control" id="lugar" name="lugar" required>
+				<input type="text" class="form-control" id="lugar" name="lugar" required value="<%= capacitacion.getLugar() %>">
 			</div>
 			<div class="form-group">
 				<label for="nombre">Cantidad de Asistentes:</label> 
-				<input type="number" class="form-control" id="cantidad" name="cantidad" required>
+				<input type="text" class="form-control" id="cantidad" name="cantidad" required value="<%= capacitacion.getCantidad() %>">
 			</div>
-			<button type="submit" class="btn btn-primary" id="btn-registar">Registrar</button>
+			<button type="submit" class="btn btn-primary">Actualizar</button>
 		</form>
 
 	</div>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-	<script type="text/javascript"src="./assets/js/script.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
